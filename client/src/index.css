@@ -1,0 +1,256 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Maglo Financial Theme */
+  --color-background: hsl(230 25% 97%);
+  --color-foreground: hsl(230 25% 18%);
+  
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(230 25% 18%);
+  
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(230 25% 18%);
+  
+  --color-primary: hsl(252 87% 54%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  
+  --color-secondary: hsl(230 20% 94%);
+  --color-secondary-foreground: hsl(230 25% 18%);
+  
+  --color-muted: hsl(230 20% 94%);
+  --color-muted-foreground: hsl(230 15% 50%);
+  
+  --color-accent: hsl(252 87% 54% / 0.1);
+  --color-accent-foreground: hsl(252 87% 54%);
+  
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  
+  --color-success: hsl(152 69% 45%);
+  --color-warning: hsl(38 92% 50%);
+  
+  --color-border: hsl(230 20% 90%);
+  --color-input: hsl(230 20% 90%);
+  --color-ring: hsl(252 87% 54%);
+  
+  --color-chart-1: hsl(252 87% 54%);
+  --color-chart-2: hsl(152 69% 45%);
+  --color-chart-3: hsl(340 75% 55%);
+  --color-chart-4: hsl(38 92% 50%);
+  --color-chart-5: hsl(200 80% 55%);
+  
+  /* Dark Sidebar - Maglo Style */
+  --color-sidebar: hsl(232 33% 12%);
+  --color-sidebar-foreground: hsl(230 20% 75%);
+  --color-sidebar-primary: hsl(252 87% 54%);
+  --color-sidebar-primary-foreground: hsl(0 0% 100%);
+  --color-sidebar-accent: hsl(232 30% 18%);
+  --color-sidebar-accent-foreground: hsl(0 0% 100%);
+  --color-sidebar-border: hsl(232 30% 20%);
+  --color-sidebar-ring: hsl(252 87% 54%);
+
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  
+  --radius: 0.75rem;
+  
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+  
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  /* Disable scroll wheel on number inputs */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+  
+  /* Remove number input arrows */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+.card-shadow {
+  box-shadow: var(--shadow-card);
+}
+
+.card-hover {
+  transition: all 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.06), 0 16px 32px rgba(0, 0, 0, 0.06);
+}
+
+.gradient-primary {
+  background: linear-gradient(135deg, hsl(252 87% 54%) 0%, hsl(280 80% 50%) 100%);
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, hsl(152 69% 45%) 0%, hsl(170 60% 45%) 100%);
+}
+
+.gradient-warning {
+  background: linear-gradient(135deg, hsl(38 92% 50%) 0%, hsl(25 95% 55%) 100%);
+}
+
+.gradient-danger {
+  background: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(350 85% 55%) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(252 87% 54%) 0%, hsl(280 80% 50%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accordion - stronger dividers */
+[data-radix-collection-item] {
+  border-bottom: 2px solid #D1D5DB !important;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Maglo-style stat card icon backgrounds */
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon-primary {
+  background: linear-gradient(135deg, hsl(252 87% 54% / 0.15) 0%, hsl(280 80% 50% / 0.15) 100%);
+  color: hsl(252 87% 54%);
+}
+
+.stat-icon-success {
+  background: linear-gradient(135deg, hsl(152 69% 45% / 0.15) 0%, hsl(170 60% 45% / 0.15) 100%);
+  color: hsl(152 69% 45%);
+}
+
+.stat-icon-warning {
+  background: linear-gradient(135deg, hsl(38 92% 50% / 0.15) 0%, hsl(25 95% 55% / 0.15) 100%);
+  color: hsl(38 92% 50%);
+}
+
+.stat-icon-danger {
+  background: linear-gradient(135deg, hsl(0 84% 60% / 0.15) 0%, hsl(350 85% 55% / 0.15) 100%);
+  color: hsl(0 84% 60%);
+}
+
+/* Print Styles */
+@media print {
+  /* Hide everything by default */
+  body * {
+    visibility: hidden;
+  }
+  
+  /* Show only the invoice preview */
+  #invoice-print-area,
+  #invoice-print-area * {
+    visibility: visible;
+  }
+  
+  /* Position the invoice at the top of the page */
+  #invoice-print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Hide specific elements */
+  .no-print,
+  nav,
+  header,
+  aside,
+  .print-hide {
+    display: none !important;
+  }
+  
+  /* Reset body */
+  body {
+    background: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Preserve colors */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  
+  /* Remove shadows for print */
+  .card-shadow, [class*="shadow"] {
+    box-shadow: none !important;
+  }
+  
+  /* Page configuration for Media Carta (8.5" x 5.5") landscape */
+  @page {
+    size: 8.5in 5.5in landscape;
+    margin: 0;
+  }
+  
+  /* Hide browser default headers/footers (date, time, page number, URL) */
+  @page {
+    margin: 0;
+  }
+  
+  html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Invoice specific styles */
+  #invoice-print-area {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
